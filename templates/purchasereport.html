@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/purchasereport.css">
+</head>
+<body>
+    <div class="body">
+    <h1 class=" title">Purchase History</h1>
+    <a href=""><img src="https://cdn-icons-png.flaticon.com/128/25/25694.png" alt="home"></a>
+        <br><br><br><br><br><br>
+    <table border="1">
+        <tr>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Item Quantity</th>
+            <th>Purchase ID</th>
+            <th>Price Per Item</th>
+            <th>Total Price</th>
+            <th>Balance before transaction</th>
+            <th>Balance after transaction</th>
+            <th>Purchase Date</th>
+        </tr>
+        <tr>
+            {% for item in item %}
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            {% for purchase in purchases %}
+            <td>{{ purchase[0] }}</td>
+            <td>{{ purchase[2] }}</td>
+            <td>{{ purchase[3] }}</td>
+            <td>{{ purchase[4] }}</td>
+            <td>{{ purchase[5] }}</td>
+            <td>{{ purchase[6] }}</td>
+            <td>{{ purchase[7] }}</td>
+        </tr>
+        {% endfor %}
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>

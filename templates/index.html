@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Namma Kadai Management</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Namma Kadai Management</h2>
+        <p>Cash Balance: Rs.{{ balance }}</p>
+        <a href="/purchase_report">purchase report</a>
+        <a href="/sales_report">Sales report</a>
+        <div class="item">
+    <form action="/add_item" method="POST">
+    <h3>Purchase Item</h3>
+        <label for="item_name">Item Name:</label>
+        <input type="text" name="item_name" id="item_name" required>
+            <br>
+            <label for="purchaseQuantity">Quantity:</label>
+            <input type="number" id="purchaseQuantity" name="purchaseQuantity">
+            <br>
+            <label for="sellPrice">Purchase Price (Rs.):</label>
+            <input type="number" name="sellPrice">
+            <br>
+            <p>{{ statement1 }}</p>
+            <button type="submit">Purchase</button>
+           </form>
+           
+        </div>
+       
+<div class="item">
+    <form action="/sell_item" method="POST">
+        <h3>Sell Item</h3>
+        <label for="sellItem">Select Item:</label>
+        <input type="text" name="sellItem" id="sellItem" required>
+        <br>
+        <label for="sellQuantity">Quantity:</label>
+        <input type="number" name="sellQuantity" id="sellQuantity">
+        <br>
+        <label for="sellPrice">Selling Price (Rs.):</label>
+        <input type="number" name="sellPrice" id="sellPrice">
+        <br>
+        <p>{{ statement2 }}</p>
+        <button type="submit">Sell</button>
+    </form>
+</div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

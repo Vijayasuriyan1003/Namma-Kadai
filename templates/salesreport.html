@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/salesreport.css">
+</head>
+<body>
+    <div class="body">
+    <h1 class="title">Sales History</h1>
+        <a href="/home"><img src="https://cdn-icons-png.flaticon.com/128/25/25694.png" alt="home"></a>
+        <br> <br> <br> <br> <br> <br> <br>
+        <table border="1">
+            <tr>
+                <th>Sales ID</th>
+                <th>Item ID</th>
+                <th>Sold Price Per Item</th>
+                <th>Total Sold Price</th>
+                <th>Balance before transaction</th>
+                <th>Balance after transaction</th>
+                <th>Sales Date</th>
+            </tr>
+            {% for sale in sales %}
+            <tr>
+                <td>{{ sale[0] }}</td>
+                <td>{{ sale[1] }}</td>
+                <td>{{ sale[2] }}</td>
+                <td>{{ sale[3] }}</td>
+                <td>{{ sale[4] }}</td>
+                <td>{{ sale[5] }}</td>
+                <td>{{ sale[6] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+</div>
+</body>
+</html>
