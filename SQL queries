@@ -1,0 +1,59 @@
+create database MyShop;
+
+
+use MyShop;
+
+
+create table company(
+ companyid int primary key auto_increment,
+ companyname varchar(100),
+ balance int check(balance>0)
+ );
+ 
+ 
+ create table item(
+ itemid int auto_increment primary key,
+ itemname varchar(100),
+ itemquantity int check (itemquantity>=0)
+ );
+ 
+ 
+ create table purchase(
+ purchaseid int auto_increment primary key,
+ purchasedshop varchar(100),
+ itemid int,
+ priceperitem int check(priceperitem>0),
+ totalprice int check(totalprice>0),
+ pretotal int ,
+ balance int,
+ purchasedt timestamp default current_timestamp on update current_timestamp
+ );
+
+ alter table purchase change pretotal prebalance int;
+ 
+  create table sales(
+ salesid int auto_increment primary key,
+ itemid int,
+ soldpriceperitem int check(soldpriceperitem>0),
+ totalsoldprice int check(totalsoldprice>0),
+ pretotals int ,
+ balances int,
+ salesdt timestamp default current_timestamp on update current_timestamp,
+ Foreign key (itemid) references item(itemid)
+ );
+
+alter table purchase add Foreign key (itemid) references item(itemid);
+
+ALTER TABLE company
+ADD CONSTRAINT ucompanyname UNIQUE (companyname);
+
+insert into company (companyname,balance) value('Namma Kadai',1000);
+
+update company set c_password='123' where companyid=1;
+
+ select*from item;
+ select*from purchase; 
+ select*from company;
+  select*from sales; 
+  
+  
